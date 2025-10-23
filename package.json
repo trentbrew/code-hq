@@ -1,0 +1,71 @@
+{
+  "name": "code-hq",
+  "version": "1.1.0",
+  "description": "Project knowledge graph for agentic development",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": false,
+  "bin": {
+    "code-hq": "./bin/code-hq.ts"
+  },
+  "scripts": {
+    "dev": "bun run index.ts",
+    "code-hq": "bun run bin/code-hq.ts",
+    "demo:eav": "bun run examples/eav-demo.ts",
+    "demo:graph": "bun run examples/graph-demo.ts",
+    "demo:agent-graph": "bun run examples/agent-graph-demo.ts",
+    "demo:tql-graph": "bun run examples/tql-graph-demo.ts",
+    "demo:products": "bun run examples/products-final-demo.ts",
+    "demo:tot": "bun run examples/tot-demo.ts",
+    "demo:real-data": "bun run examples/real-data-demo.ts",
+    "demo:enhanced-real-data": "bun run examples/enhanced-real-data-demo.ts",
+    "demos": "bun run examples/run-all-demos.ts",
+    "tql": "bun run src/cli/tql.ts",
+    "demo:tql": "bun run examples/tql-demo.ts",
+    "build": "bun build src/index.ts --outdir dist",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:workflow": "vitest run test/workflow-hardening.test.ts"
+  },
+  "keywords": [
+    "project-management",
+    "knowledge-graph",
+    "ai-agents",
+    "datalog",
+    "eav",
+    "task-management",
+    "semantic-web",
+    "json-ld",
+    "agent-native",
+    "local-first"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trentbrew/codehq.git"
+  },
+  "bugs": {
+    "url": "https://github.com/trentbrew/codehq/issues"
+  },
+  "homepage": "https://github.com/trentbrew/codehq#readme",
+  "author": "Trent Brew <trentbrew@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/yaml": "^1.9.7",
+    "vitest": "^1.0.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "^2.0.30",
+    "ai": "^5.0.44",
+    "ajv": "^8.17.1",
+    "commander": "^14.0.1",
+    "yaml": "^2.8.1",
+    "zod": "^4.1.8"
+  }
+}
