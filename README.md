@@ -39,7 +39,7 @@ code-hq transforms your project into an **intelligent knowledge graph**:
 - 📊 **Visual**: Rich views (kanban, calendar, graph, tables)
 - 🔗 **Semantic**: JSON-LD format with relationships between entities
 
-### Built on TQL
+### Built on [TQL](https://github.com/trentbrew/TQL)
 
 code-hq is powered by **TQL** (Tree Query Language), a schema-agnostic EAV engine with Datalog evaluation. TQL provides the query engine, while code-hq adds project management conventions and rich UIs.
 
