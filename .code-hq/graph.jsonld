@@ -163,6 +163,211 @@
       ],
       "createdAt": "2025-10-24T08:21:09.717Z",
       "updatedAt": "2025-10-24T08:21:09.717Z"
+    },
+    {
+      "@id": "task:1761296225628",
+      "@type": "Task",
+      "title": "Fix authentication bug",
+      "status": "todo",
+      "priority": "high",
+      "assignee": "@alice",
+      "tags": [],
+      "createdAt": "2025-10-24T08:57:05.628Z",
+      "updatedAt": "2025-10-24T08:57:05.628Z"
+    },
+    {
+      "@id": "task:1761299612254",
+      "@type": "Task",
+      "title": "Add 'code-hq people' list command",
+      "status": "done",
+      "priority": "high",
+      "tags": [
+        "cli",
+        "quick-win"
+      ],
+      "createdAt": "2025-10-24T09:53:32.253Z",
+      "updatedAt": "2025-10-24T10:11:15.590Z"
+    },
+    {
+      "@id": "task:1761299613928",
+      "@type": "Task",
+      "title": "Add 'code-hq milestones' list command",
+      "status": "done",
+      "priority": "high",
+      "tags": [
+        "cli",
+        "quick-win"
+      ],
+      "createdAt": "2025-10-24T09:53:33.928Z",
+      "updatedAt": "2025-10-24T10:11:16.936Z"
+    },
+    {
+      "@id": "task:1761299615316",
+      "@type": "Task",
+      "title": "Create Windsurf global workflow file",
+      "status": "todo",
+      "priority": "medium",
+      "tags": [
+        "integration",
+        "windsurf"
+      ],
+      "createdAt": "2025-10-24T09:53:35.316Z",
+      "updatedAt": "2025-10-24T09:53:35.316Z"
+    },
+    {
+      "@id": "task:1761299617274",
+      "@type": "Task",
+      "title": "Publish code-hq to npm",
+      "status": "todo",
+      "priority": "critical",
+      "tags": [
+        "release",
+        "npm"
+      ],
+      "createdAt": "2025-10-24T09:53:37.274Z",
+      "updatedAt": "2025-10-24T09:53:37.274Z"
+    },
+    {
+      "@id": "task:1761299619422",
+      "@type": "Task",
+      "title": "Record 3-minute demo video",
+      "status": "todo",
+      "priority": "medium",
+      "tags": [
+        "marketing",
+        "demo"
+      ],
+      "createdAt": "2025-10-24T09:53:39.422Z",
+      "updatedAt": "2025-10-24T09:53:39.422Z"
+    },
+    {
+      "@id": "task:1761299620136",
+      "@type": "Task",
+      "title": "Post launch tweet thread",
+      "status": "todo",
+      "priority": "high",
+      "tags": [
+        "marketing",
+        "launch"
+      ],
+      "createdAt": "2025-10-24T09:53:40.136Z",
+      "updatedAt": "2025-10-24T09:53:40.136Z"
+    },
+    {
+      "@id": "task:1761299620382",
+      "@type": "Task",
+      "title": "Submit Show HN post",
+      "status": "todo",
+      "priority": "high",
+      "tags": [
+        "marketing",
+        "launch"
+      ],
+      "createdAt": "2025-10-24T09:53:40.382Z",
+      "updatedAt": "2025-10-24T09:53:40.382Z"
+    },
+    {
+      "@id": "task:1761299620492",
+      "@type": "Task",
+      "title": "Git commit and push to GitHub",
+      "status": "todo",
+      "priority": "critical",
+      "tags": [
+        "release",
+        "git"
+      ],
+      "createdAt": "2025-10-24T09:53:40.492Z",
+      "updatedAt": "2025-10-24T09:53:40.492Z"
+    },
+    {
+      "@id": "task:1761299627719",
+      "@type": "Task",
+      "title": "Create agent integration templates",
+      "status": "done",
+      "priority": "high",
+      "tags": [
+        "agents",
+        "templates"
+      ],
+      "createdAt": "2025-10-24T09:53:47.719Z",
+      "updatedAt": "2025-10-24T09:53:47.719Z"
+    },
+    {
+      "@id": "task:1761299628888",
+      "@type": "Task",
+      "title": "Implement core CLI commands",
+      "status": "done",
+      "priority": "critical",
+      "tags": [
+        "cli",
+        "core"
+      ],
+      "createdAt": "2025-10-24T09:53:48.888Z",
+      "updatedAt": "2025-10-24T09:53:48.888Z"
+    },
+    {
+      "@id": "task:1761299630381",
+      "@type": "Task",
+      "title": "Write comprehensive documentation",
+      "status": "done",
+      "priority": "high",
+      "tags": [
+        "docs"
+      ],
+      "createdAt": "2025-10-24T09:53:50.381Z",
+      "updatedAt": "2025-10-24T09:53:50.381Z"
+    },
+    {
+      "@id": "task:1761299630714",
+      "@type": "Task",
+      "title": "Fork TQL and rebrand as code-hq",
+      "status": "done",
+      "priority": "critical",
+      "tags": [
+        "architecture",
+        "fork"
+      ],
+      "createdAt": "2025-10-24T09:53:50.714Z",
+      "updatedAt": "2025-10-24T09:53:50.714Z"
+    },
+    {
+      "@id": "note:1761299650635",
+      "@type": "Note",
+      "title": "Project Status: code-hq v1.0",
+      "content": "\n## Completed ✅\n- Forked TQL and rebranded as code-hq\n- Implemented core CLI (init, create, update, tasks, notes, show, validate, query)\n- Created 6 comprehensive agent training templates (1,544 lines)\n- Built entity schemas (Task, Person, Note, Milestone)\n- Integrated TQL engine (EAV + Datalog)\n- Wrote extensive documentation\n\n## Remaining Critical Tasks 🚨\n1. Git commit and push to GitHub\n2. Publish to npm\n\n## Quick Wins (30 min each)\n- Add 'code-hq people' command\n- Add 'code-hq milestones' command\n- Create Windsurf global workflow\n\n## Launch Tasks \n- Record demo video\n- Post tweet thread (draft ready in SHIP-IT.md)\n- Submit Show HN\n\n## Strategy\nShip minimal v1.0 now with core features. Add workflow automation and reports in v1.1 based on user feedback.\n",
+      "type": "meeting",
+      "tags": [
+        "status",
+        "v1.0",
+        "milestone"
+      ],
+      "createdAt": "2025-10-24T09:54:10.634Z",
+      "updatedAt": "2025-10-24T09:54:10.634Z"
+    },
+    {
+      "@id": "person:trent-brew",
+      "@type": "Person",
+      "name": "Trent Brew",
+      "email": "trent@codehq.dev",
+      "role": "Creator"
+    },
+    {
+      "@id": "milestone:1761300665321",
+      "@type": "Milestone",
+      "title": "v1.0 Release",
+      "description": "Initial public release",
+      "dueDate": "2025-01-31",
+      "status": "planned",
+      "progress": 0
+    },
+    {
+      "@id": "milestone:1761300667041",
+      "@type": "Milestone",
+      "title": "v1.1 Enhancements",
+      "description": "Reports and metrics",
+      "dueDate": "2025-02-28",
+      "status": "planned",
+      "progress": 0
     }
   ]
 }

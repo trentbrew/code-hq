@@ -12,6 +12,8 @@ import { tasksCommand } from '../src/cli-extensions/tasks.js';
 import { createCommand } from '../src/cli-extensions/create.js';
 import { updateCommand } from '../src/cli-extensions/update.js';
 import { notesCommand } from '../src/cli-extensions/notes.js';
+import { milestonesCommand } from '../src/cli-extensions/milestones.js';
+import { peopleCommand } from '../src/cli-extensions/people.js';
 import { showCommand } from '../src/cli-extensions/show.js';
 import { validateCommand } from '../src/cli-extensions/validate.js';
 import { initTelemetry, trackCommand, shutdownTelemetry } from '../src/telemetry.js';
@@ -55,6 +57,18 @@ program
   .option('--type <type>', 'Filter by type (decision|meeting|research|idea|general)')
   .option('--tag <tag>', 'Filter by tag')
   .action(notesCommand);
+
+program
+  .command('milestones')
+  .description('List and filter milestones')
+  .option('--status <status>', 'Filter by status (planned|active|completed|cancelled)')
+  .action(milestonesCommand);
+
+program
+  .command('people')
+  .description('List and filter people')
+  .option('--role <role>', 'Filter by role')
+  .action(peopleCommand);
 
 program
   .command('create <type> [title]')

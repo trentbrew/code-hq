@@ -2,11 +2,13 @@
  * CLI extensions for code-hq
  */
 
-export * from './init.js';
-export * from './tasks.js';
-export * from './notes.js';
-export * from './create.js';
-export * from './update.js';
-export * from './show.js';
-export * from './validate.js';
+export { initCommand } from './init.js';
+export { tasksCommand } from './tasks.js';
+export { notesCommand } from './notes.js';
+export { milestonesCommand } from './milestones.js';
+export { peopleCommand } from './people.js';
+export { createCommand } from './create.js';
+export { updateCommand } from './update.js';
+export { showCommand } from './show.js';
+export { validateCommand } from './validate.js';
 export * from './utils.js';

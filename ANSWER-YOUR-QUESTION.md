@@ -24,7 +24,9 @@ When users run `code-hq init`, they get rich markdown documentation that teaches
 ## How Agents Discover It
 
 ### Cursor
+
 User adds to `.cursorrules`:
+
 ```markdown
 This project uses code-hq. Reference `.code-hq/prompts/_index.md` for commands.
 ```
@@ -32,23 +34,28 @@ This project uses code-hq. Reference `.code-hq/prompts/_index.md` for commands.
 Agent reads the file once → understands the system.
 
 ### Windsurf
-User creates `.windsurf/workflows/codehq.md`:
+
+User creates `~/.codeium/windsurf/global_workflows/codehq.md`:
+
 ```markdown
 ---
 description: code-hq reference
 ---
+
 Read `.code-hq/prompts/_index.md`
 ```
 
 Slash command works immediately.
 
 ### Claude Code
+
 Just works. Claude auto-indexes `.code-hq/prompts/` as project context.
 
 User asks: "How do I manage tasks?"
-Claude: *reads task-management.md* → answers correctly.
+Claude: _reads task-management.md_ → answers correctly.
 
 ### Continue / Cline
+
 User points custom instructions at `.code-hq/prompts/`
 
 Agent has full context.
@@ -56,7 +63,9 @@ Agent has full context.
 ## Why This Works
 
 ### 1. Self-Contained Learning
+
 Each markdown file is **complete**:
+
 - What the tool does
 - When to use it
 - How to use it (with examples)
@@ -67,6 +76,7 @@ Agent reads `_index.md` (3KB) → knows 80% of what it needs.
 Reads `task-management.md` (11KB) → becomes expert.
 
 ### 2. Progressive Disclosure
+
 ```
 User: "What tasks am I working on?"
   ↓
@@ -82,6 +92,7 @@ Done (without reading 35KB)
 Only reads deeper when needed.
 
 ### 3. Works Everywhere
+
 - ✅ Cursor (via .cursorrules)
 - ✅ Windsurf (via workflows)
 - ✅ Claude Code (auto-indexed)
@@ -90,6 +101,7 @@ Only reads deeper when needed.
 - ✅ Any future agent (they all read files)
 
 ### 4. Zero Setup
+
 ```bash
 code-hq init  # Done
 ```
@@ -97,7 +109,9 @@ code-hq init  # Done
 No server to install. No config to manage. No API keys.
 
 ### 5. Testable
+
 Before shipping a prompt template:
+
 1. Read it yourself
 2. Follow the instructions
 3. If it works for you → it works for agents
@@ -105,7 +119,9 @@ Before shipping a prompt template:
 No "prompt engineering" black magic.
 
 ### 6. Improvable
+
 Prompts live in git:
+
 - User finds confusing instruction
 - Opens PR with clearer wording
 - Everyone benefits
@@ -116,6 +132,7 @@ Prompts live in git:
 **User**: "Create a task for fixing the auth bug, assign it to Alice, high priority"
 
 **Agent's thought process**:
+
 1. Sees `.code-hq/` in project
 2. Reads `.code-hq/prompts/_index.md` (cached from earlier)
 3. Finds create command example:
@@ -134,6 +151,7 @@ Prompts live in git:
 ## Why Not MCP?
 
 MCP is great, but:
+
 - ❌ Only works in Claude Code (for now)
 - ❌ Requires installation/setup
 - ❌ Another server to maintain
@@ -141,6 +159,7 @@ MCP is great, but:
 - ❌ Harder to test/debug
 
 Markdown:
+
 - ✅ Works in all IDEs
 - ✅ Zero setup
 - ✅ Already have it (from `init`)
@@ -152,9 +171,11 @@ Markdown:
 ## The Files
 
 ### `_index.md` - The Entry Point
+
 **Purpose**: Agent reads this first, gets 80% of what it needs.
 
 **Contains**:
+
 - What is code-hq?
 - Quick command reference
 - Links to detailed guides
@@ -164,9 +185,11 @@ Markdown:
 **Size**: 3KB (30 seconds to read)
 
 ### `task-management.md` - The Expert Guide
+
 **Purpose**: Complete reference for task operations.
 
 **Contains**:
+
 - All commands (list, create, update, query)
 - Task lifecycle
 - Common workflows
@@ -177,9 +200,11 @@ Markdown:
 **Size**: 11KB (5 minutes to read)
 
 ### `note-taking.md` - Documentation Patterns
+
 **Purpose**: Teach agents to document properly.
 
 **Contains**:
+
 - Note types and when to use them
 - Templates for decisions, meetings, research
 - Linking patterns
@@ -188,9 +213,11 @@ Markdown:
 **Size**: 8KB (4 minutes to read)
 
 ### `query-examples.md` - Query Cookbook
+
 **Purpose**: Teach EQL-S query language.
 
 **Contains**:
+
 - Basic queries
 - Complex queries (joins, aggregations)
 - Natural language examples
@@ -199,9 +226,11 @@ Markdown:
 **Size**: 4KB (2 minutes to read)
 
 ### `workflows/*.md` - Automation Patterns
+
 **Purpose**: Executable workflows agents can run.
 
 **Examples**:
+
 - `daily-standup.md` - Generate standup reports
 - `pr-review.md` - Review PRs against task context
 - `sprint-planning.md` - (coming soon)
@@ -211,11 +240,14 @@ Markdown:
 ## Workflow Sharing
 
 ### Built-in (Now)
+
 Ships with code-hq:
+
 - daily-standup
 - pr-review
 
 ### Community (Future)
+
 ```bash
 code-hq workflows browse
 code-hq workflows install ci-cd-setup
@@ -223,34 +255,38 @@ code-hq workflows publish my-workflow
 ```
 
 ### Copy-Paste (Always)
+
 User shares `.md` file → others copy to their `.code-hq/prompts/workflows/`
 
 ## Comparison: Markdown vs MCP
 
-| Feature | Markdown | MCP Server |
-|---------|----------|------------|
-| Setup | None | Install + config |
-| Works in | All IDEs | Claude Code |
-| Readable by | Agents + humans | Agents only |
-| Test method | Read + follow | Call tools |
-| Customizable | ✅ Edit .md | ❌ Code changes |
-| Shareable | ✅ Copy file | ❌ Install package |
-| Versioned | ✅ In git | ❌ Separate |
-| Ship time | ✅ Now | 📋 Later |
+| Feature      | Markdown        | MCP Server         |
+| ------------ | --------------- | ------------------ |
+| Setup        | None            | Install + config   |
+| Works in     | All IDEs        | Claude Code        |
+| Readable by  | Agents + humans | Agents only        |
+| Test method  | Read + follow   | Call tools         |
+| Customizable | ✅ Edit .md     | ❌ Code changes    |
+| Shareable    | ✅ Copy file    | ❌ Install package |
+| Versioned    | ✅ In git       | ❌ Separate        |
+| Ship time    | ✅ Now          | 📋 Later           |
 
 ## Success Metrics
 
 **Good**:
+
 - Agents use code-hq without explicit prompting
 - Users say "my AI just figured it out"
 - Low support questions
 
 **Great**:
+
 - Community shares custom workflows
 - Other tools copy this pattern
 - Becomes standard for agent-native CLIs
 
 **Amazing**:
+
 - Agents suggest workflow improvements
 - Self-evolving documentation
 - Zero maintenance needed
@@ -260,12 +296,14 @@ User shares `.md` file → others copy to their `.code-hq/prompts/workflows/`
 **You were right**: Don't reinvent the wheel.
 
 Agents already know how to:
+
 - ✅ Read files
 - ✅ Parse markdown
 - ✅ Run shell commands
 - ✅ Follow instructions
 
 So give them:
+
 - ✅ Really good files
 - ✅ Clear markdown
 - ✅ Testable commands
@@ -280,6 +318,7 @@ The beauty: If prompts are good enough for humans → they're good enough for ag
 ## What's Shipped
 
 ✅ **Templates created**:
+
 - `_index.md`
 - `task-management.md`
 - `note-taking.md`
@@ -288,11 +327,13 @@ The beauty: If prompts are good enough for humans → they're good enough for ag
 - `workflows/pr-review.md`
 
 ✅ **Init command updated**:
+
 - Copies all templates on `code-hq init`
 - Creates `.code-hq/prompts/` structure
 - Works with Bun + TypeScript
 
 ✅ **Documentation**:
+
 - `AGENT-INTEGRATION.md` - Full strategy
 - `CODE-HQ-README.md` - User docs
 - This file - Answers your question
@@ -305,6 +346,6 @@ code-hq init  # Creates prompts
 
 Agents can now learn to use code-hq by reading files.
 
-**No MCP server needed. No special APIs. Just markdown.** 
+**No MCP server needed. No special APIs. Just markdown.**
 
 That's the answer. 🎯
