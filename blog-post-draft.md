@@ -1,3 +1,14 @@
+---
+title: Why AI Agents Need Semantic Context (And Why Flat Files Won't Cut It)
+published: 2025-10-24
+updated: 2025-10-24
+description: 'How code-hq gives AI agents the structured, queryable context they need to build better software'
+image: './code-hq-cover.png'
+tags: [AI, Developer Tools, CLI, Semantic Web, Agents, Agentic Development]
+category: 'Developer Tools'
+draft: false
+---
+
 # Why AI Agents Need Semantic Context (And Why Flat Files Won't Cut It)
 
 ## The Problem with Current AI Workflows
