@@ -2,8 +2,12 @@
  * Initialize .code-hq/ directory structure
  */
 
-import { mkdir, writeFile, exists } from 'fs/promises';
-import { join } from 'path';
+import { mkdir, writeFile, exists, readFile, copyFile } from 'fs/promises';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const INITIAL_GRAPH = {
   '@context': 'https://schema.org',
@@ -125,11 +129,51 @@ export async function initCommand(options: { global?: boolean }) {
     await writeFile(join(targetDir, 'entities', 'people.md'), '# People\n\n_No people yet._\n');
     await writeFile(join(targetDir, 'entities', 'milestones.md'), '# Milestones\n\n_No milestones yet._\n');
 
-    // Create agent prompt templates
-    await writeFile(
-      join(targetDir, 'prompts', 'task-management.md'),
-      TASK_MANAGEMENT_PROMPT
-    );
+    // Copy agent prompt templates from templates directory  
+    // Resolve templates path relative to this file
+    const templatesDir = join(__dirname, '..', 'templates', 'prompts');
+    
+    // Ensure workflows directory exists
+    await mkdir(join(targetDir, 'prompts', 'workflows'), { recursive: true });
+    
+    try {
+      // Copy main prompts
+      await copyFile(
+        join(templatesDir, '_index.md'),
+        join(targetDir, 'prompts', '_index.md')
+      );
+      await copyFile(
+        join(templatesDir, 'task-management.md'),
+        join(targetDir, 'prompts', 'task-management.md')
+      );
+      await copyFile(
+        join(templatesDir, 'query-examples.md'),
+        join(targetDir, 'prompts', 'query-examples.md')
+      );
+      await copyFile(
+        join(templatesDir, 'note-taking.md'),
+        join(targetDir, 'prompts', 'note-taking.md')
+      );
+      
+      // Copy workflow templates
+      await copyFile(
+        join(templatesDir, 'workflows', 'daily-standup.md'),
+        join(targetDir, 'prompts', 'workflows', 'daily-standup.md')
+      );
+      await copyFile(
+        join(templatesDir, 'workflows', 'pr-review.md'),
+        join(targetDir, 'prompts', 'workflows', 'pr-review.md')
+      );
+    } catch (error) {
+      // Fallback to basic template if copy fails
+      console.warn('⚠️  Could not copy template files, using basic templates');
+      console.warn(`    Template path: ${templatesDir}`);
+      console.warn(`    Error: ${error}`);
+      await writeFile(
+        join(targetDir, 'prompts', 'task-management.md'),
+        TASK_MANAGEMENT_PROMPT
+      );
+    }
 
     // Create default workflow
     await writeFile(

@@ -1,0 +1,168 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "task:1761294050726",
+      "@type": "Task",
+      "title": "Implement OAuth 2.0 authentication",
+      "status": "in-progress",
+      "priority": "high",
+      "tags": [
+        "auth",
+        "security",
+        "backend"
+      ],
+      "createdAt": "2025-10-24T08:20:50.726Z",
+      "updatedAt": "2025-10-24T08:20:50.726Z"
+    },
+    {
+      "@id": "task:1761294052657",
+      "@type": "Task",
+      "title": "Add two-factor authentication (2FA)",
+      "status": "todo",
+      "priority": "medium",
+      "tags": [
+        "auth",
+        "security",
+        "feature"
+      ],
+      "createdAt": "2025-10-24T08:20:52.657Z",
+      "updatedAt": "2025-10-24T08:20:52.657Z"
+    },
+    {
+      "@id": "task:1761294054593",
+      "@type": "Task",
+      "title": "Fix database connection timeout",
+      "status": "blocked",
+      "priority": "critical",
+      "tags": [
+        "bug",
+        "database",
+        "hotfix"
+      ],
+      "createdAt": "2025-10-24T08:20:54.593Z",
+      "updatedAt": "2025-10-24T08:20:54.593Z"
+    },
+    {
+      "@id": "task:1761294056707",
+      "@type": "Task",
+      "title": "Refactor API error handling",
+      "status": "review",
+      "priority": "medium",
+      "tags": [
+        "refactor",
+        "api",
+        "backend"
+      ],
+      "createdAt": "2025-10-24T08:20:56.707Z",
+      "updatedAt": "2025-10-24T08:20:56.707Z"
+    },
+    {
+      "@id": "task:1761294059271",
+      "@type": "Task",
+      "title": "Update user onboarding flow",
+      "status": "todo",
+      "priority": "low",
+      "tags": [
+        "ux",
+        "frontend",
+        "feature"
+      ],
+      "createdAt": "2025-10-24T08:20:59.271Z",
+      "updatedAt": "2025-10-24T08:20:59.271Z"
+    },
+    {
+      "@id": "task:1761294062087",
+      "@type": "Task",
+      "title": "Write API documentation",
+      "status": "done",
+      "priority": "medium",
+      "tags": [
+        "docs",
+        "api"
+      ],
+      "createdAt": "2025-10-24T08:21:02.087Z",
+      "updatedAt": "2025-10-24T08:21:02.087Z"
+    },
+    {
+      "@id": "task:1761294064900",
+      "@type": "Task",
+      "title": "Setup CI/CD pipeline",
+      "status": "todo",
+      "priority": "high",
+      "tags": [
+        "devops",
+        "infrastructure"
+      ],
+      "createdAt": "2025-10-24T08:21:04.900Z",
+      "updatedAt": "2025-10-24T08:21:04.900Z"
+    },
+    {
+      "@id": "note:1761294067403",
+      "@type": "Note",
+      "title": "Architecture Decision: Use PostgreSQL",
+      "content": "We chose PostgreSQL over MongoDB because we need ACID transactions, complex joins, and strong consistency guarantees. PostgreSQL's JSON support gives us flexibility when needed without sacrificing relational integrity.",
+      "type": "decision",
+      "tags": [
+        "architecture",
+        "database",
+        "decision"
+      ],
+      "createdAt": "2025-10-24T08:21:07.403Z",
+      "updatedAt": "2025-10-24T08:21:07.403Z"
+    },
+    {
+      "@id": "note:1761294069243",
+      "@type": "Note",
+      "title": "OAuth Provider Research",
+      "content": "Compared Auth0, Okta, and AWS Cognito. Auth0 offers best developer experience and pricing for our scale. Recommended for MVP with option to migrate to self-hosted later if needed.",
+      "type": "research",
+      "tags": [
+        "research",
+        "auth",
+        "oauth"
+      ],
+      "createdAt": "2025-10-24T08:21:09.243Z",
+      "updatedAt": "2025-10-24T08:21:09.243Z"
+    },
+    {
+      "@id": "note:1761294069349",
+      "@type": "Note",
+      "title": "Sprint Planning Meeting - Jan 2025",
+      "content": "Reviewed Q1 roadmap. Priorities: (1) Complete auth system, (2) Improve performance, (3) Add 2FA. Team velocity: 25 story points/sprint. Next sprint starts Jan 27.",
+      "type": "meeting",
+      "tags": [
+        "meeting",
+        "sprint-planning"
+      ],
+      "createdAt": "2025-10-24T08:21:09.349Z",
+      "updatedAt": "2025-10-24T08:21:09.349Z"
+    },
+    {
+      "@id": "note:1761294069492",
+      "@type": "Note",
+      "title": "Blocker: Database credentials needed",
+      "content": "Task blocked waiting for production database credentials. Requested from ops@company.com on Jan 20. Expected delivery: Jan 25. Impacts OAuth implementation timeline.",
+      "type": "general",
+      "tags": [
+        "blocker",
+        "devops"
+      ],
+      "createdAt": "2025-10-24T08:21:09.492Z",
+      "updatedAt": "2025-10-24T08:21:09.492Z"
+    },
+    {
+      "@id": "note:1761294069717",
+      "@type": "Note",
+      "title": "Idea: Real-time collaboration features",
+      "content": "What if multiple developers could work on the knowledge graph simultaneously? Could use WebSockets + CRDTs for conflict-free updates. Would need backend service. Worth exploring for v2.0.",
+      "type": "idea",
+      "tags": [
+        "feature-idea",
+        "collaboration"
+      ],
+      "createdAt": "2025-10-24T08:21:09.717Z",
+      "updatedAt": "2025-10-24T08:21:09.717Z"
+    }
+  ]
+}
