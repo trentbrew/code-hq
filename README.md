@@ -6,6 +6,8 @@
 
 **Core Principle**: Every project gets a `.code-hq/` directory containing a semantic graph of tasks, notes, people, milestones, and custom entities—queryable via CLI, manipulated by AI agents, and visualizable in rich UIs.
 
+<img width="7708" height="4364" alt="image" src="https://github.com/user-attachments/assets/fda804d9-cc6a-4118-be6f-b3078c48d94c" />
+
 ## Quick Start
 
 ```bash
