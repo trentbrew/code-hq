@@ -16,6 +16,7 @@ import { milestonesCommand } from '../src/cli-extensions/milestones.js';
 import { peopleCommand } from '../src/cli-extensions/people.js';
 import { showCommand } from '../src/cli-extensions/show.js';
 import { validateCommand } from '../src/cli-extensions/validate.js';
+import { changelogGenerateCommand, changelogReleaseCommand } from '../src/cli-extensions/changelog.js';
 import { initTelemetry, trackCommand, shutdownTelemetry } from '../src/telemetry.js';
 import { EAVStore, jsonEntityFacts } from '../src/eav-engine.js';
 import { DatalogEvaluator } from '../src/query/datalog-evaluator.js';
@@ -108,6 +109,25 @@ program
   .command('validate')
   .description('Validate .code-hq/ graph and structure')
   .action(validateCommand);
+
+// ============================================
+// Changelog automation
+// ============================================
+
+const changelog = program.command('changelog').description('Automate changelog generation from git history');
+
+changelog
+  .command('generate')
+  .description('Generate changelog entry from git commits since last tag')
+  .option('--version <version>', 'Specify version manually (e.g., 1.2.0)')
+  .option('--dry-run', 'Preview without writing to CHANGELOG.md')
+  .action(changelogGenerateCommand);
+
+changelog
+  .command('release')
+  .description('Prepare release: update package.json version and create git tag')
+  .option('--version <version>', 'Specify version manually (e.g., 1.2.0)')
+  .action(changelogReleaseCommand);
 
 // ============================================
 // Raw TQL query power (kept from TQL)
@@ -218,6 +238,11 @@ Examples:
 
   # Natural language query
   code-hq query "show me all overdue high priority tasks" --nl
+
+  # Generate changelog
+  code-hq changelog generate --dry-run
+  code-hq changelog generate
+  code-hq changelog release
 `);
 
 program.parse();
