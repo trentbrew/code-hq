@@ -1,6 +1,6 @@
 {
   "name": "code-hq",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Project knowledge graph for agentic development",
   "main": "src/index.ts",
   "module": "src/index.ts",
