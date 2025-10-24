@@ -218,14 +218,14 @@
       "@id": "task:1761299617274",
       "@type": "Task",
       "title": "Publish code-hq to npm",
-      "status": "todo",
+      "status": "done",
       "priority": "critical",
       "tags": [
         "release",
         "npm"
       ],
       "createdAt": "2025-10-24T09:53:37.274Z",
-      "updatedAt": "2025-10-24T09:53:37.274Z"
+      "updatedAt": "2025-10-24T10:21:34.652Z"
     },
     {
       "@id": "task:1761299619422",
@@ -270,14 +270,14 @@
       "@id": "task:1761299620492",
       "@type": "Task",
       "title": "Git commit and push to GitHub",
-      "status": "todo",
+      "status": "done",
       "priority": "critical",
       "tags": [
         "release",
         "git"
       ],
       "createdAt": "2025-10-24T09:53:40.492Z",
-      "updatedAt": "2025-10-24T09:53:40.492Z"
+      "updatedAt": "2025-10-24T10:17:32.101Z"
     },
     {
       "@id": "task:1761299627719",
@@ -381,6 +381,20 @@
       ],
       "createdAt": "2025-10-24T10:15:18.959Z",
       "updatedAt": "2025-10-24T10:15:18.959Z"
+    },
+    {
+      "@id": "note:1761301301258",
+      "@type": "Note",
+      "title": "code-hq v1.3.0 shipped to npm!",
+      "content": "Successfully published code-hq v1.3.0 to npm! \n\nWhat shipped:\n- people command (list/filter people)\n- milestones command (list/filter milestones)\n- Enhanced ship.sh with automatic version bumping\n- All agent integration templates (1,544 lines)\n- Complete CRUD for all entity types\n\nPackage details:\n- Package size: 840.6 KB\n- Unpacked size: 6.2 MB\n- 222 files total\n- Available via: npm install -g code-hq\n\nNext: Launch announcements (Twitter, HN, Reddit)",
+      "type": "general",
+      "tags": [
+        "release",
+        "v1.3.0",
+        "milestone"
+      ],
+      "createdAt": "2025-10-24T10:21:41.258Z",
+      "updatedAt": "2025-10-24T10:21:41.258Z"
     }
   ]
 }

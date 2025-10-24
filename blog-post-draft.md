@@ -25,13 +25,16 @@ AI agents don't need better prompts. They need **semantic context**.
 ### 1. **Structured, Queryable Data**
 
 Instead of:
+
 ```markdown
 # TODO
+
 - [ ] Fix authentication bug (high priority, Alice)
 - [ ] Setup database (blocked by auth, Bob)
 ```
 
 AI needs:
+
 ```json
 {
   "@id": "task:auth-123",
@@ -45,19 +48,22 @@ AI needs:
 ```
 
 Now the agent can **query** instead of **parse**:
+
 ```sql
-FIND task WHERE ?t.status = 'blocked' 
+FIND task WHERE ?t.status = 'blocked'
   AND ?t.blockedBy = 'task:auth-123'
 ```
 
 ### 2. **Relationships, Not Just Lists**
 
 Flat files can't represent:
+
 - Transitive dependencies ("What needs to be done before X?")
 - Impact analysis ("What breaks if I change this?")
 - Resource allocation ("Who's overloaded?")
 
 Semantic graphs can:
+
 ```
 task:auth-123 → dependsOn → task:db-456
 task:db-456  → assignedTo → person:bob
@@ -69,18 +75,23 @@ person:bob   → workload → 8 tasks
 The magic happens when you have **both**:
 
 **Machine layer** (JSON-LD):
+
 ```json
 {
   "@context": "https://schema.org",
-  "@graph": [ /* structured data */ ]
+  "@graph": [
+    /* structured data */
+  ]
 }
 ```
 
 **Human layer** (Markdown):
+
 ```markdown
 # Tasks
 
 ## In Progress
+
 - Fix authentication bug (@alice, high priority)
 ```
 
@@ -88,13 +99,14 @@ Generate the Markdown **from** the graph. Let humans read it. Let agents query i
 
 ## How code-hq Solves This
 
-I built [code-hq](https://github.com/trentbrew/codehq) to give AI agents semantic context.
+I built [code-hq](https://github.com/trentbrew/code-hq) to give AI agents semantic context.
 
 Every project gets a `.code-hq/` directory with:
 
 ### 1. A Semantic Graph (`graph.jsonld`)
 
 Stores tasks, notes, people, milestones as JSON-LD:
+
 ```json
 {
   "@context": "https://schema.org",
@@ -114,11 +126,13 @@ Stores tasks, notes, people, milestones as JSON-LD:
 ### 2. Query Interface (EQL-S + Natural Language)
 
 Agents can query with Datalog:
+
 ```bash
 code-hq query "FIND task WHERE ?t.status = 'blocked'"
 ```
 
 Or natural language:
+
 ```bash
 code-hq query "show overdue high priority tasks" --nl
 ```
@@ -126,12 +140,13 @@ code-hq query "show overdue high priority tasks" --nl
 ### 3. Agent Workflows (`workflows/*.json`)
 
 Predefined workflows agents can execute:
+
 ```json
 {
   "name": "daily-standup",
   "steps": [
     {
-      "query": "FIND task WHERE ?t.assignee = @me 
+      "query": "FIND task WHERE ?t.assignee = @me
                  AND ?t.updatedAt > yesterday"
     }
   ]
@@ -154,19 +169,23 @@ Everything stays in sync. Humans use the CLI. Agents query the graph.
 Here's what changes when you give AI agents semantic context:
 
 ### Before (Flat Files)
-**Me**: "What's blocking the auth feature?"  
-**AI**: *Searches TODO.md, finds 3 mentions, guesses based on proximity*  
-**Me**: "Actually check task dependencies"  
-**AI**: *Can't, no structured data*  
-**Me**: *Manually checks for 10 minutes*
+
+**Me**: "What's blocking the auth feature?"
+**AI**: _Searches TODO.md, finds 3 mentions, guesses based on proximity_
+**Me**: "Actually check task dependencies"
+**AI**: _Can't, no structured data_
+**Me**: _Manually checks for 10 minutes_
 
 ### After (code-hq)
-**Me**: "What's blocking the auth feature?"  
-**AI**: 
+
+**Me**: "What's blocking the auth feature?"
+**AI**:
+
 ```bash
-code-hq query "FIND task WHERE task:auth-123 dependsOn* ?t 
+code-hq query "FIND task WHERE task:auth-123 dependsOn* ?t
                AND ?t.status != 'done'"
 ```
+
 Returns: `task:db-456` (Setup database, blocked, assigned to Bob)
 
 **Done in 2 seconds. Accurate every time.**
@@ -203,6 +222,7 @@ The key insight: **Separate human interface from machine storage**.
 ## Why This Matters Now
 
 We're entering the **agentic development** era:
+
 - Cursor AI writing entire features
 - Claude Code managing refactors
 - Custom agents handling PR reviews
@@ -221,21 +241,22 @@ npx code-hq show --view kanban
 
 Open source. Local-first. Built for agents.
 
-**GitHub**: https://github.com/trentbrew/codehq  
-**Docs**: https://github.com/trentbrew/codehq#readme
+**GitHub**: https://github.com/trentbrew/code-hq
+**Docs**: https://github.com/trentbrew/code-hq#readme
 
 ---
 
 ## What's Next?
 
 I'm exploring:
+
 1. **VSCode extension** - Visual graph editor
 2. **GitHub sync** - Bidirectional issue linking
 3. **Agent templates** - Common workflows (standup, PR review, sprint planning)
 4. **Cross-project analytics** - Multi-repo insights
 
-What agent workflows would be most useful for your team? [Open an issue](https://github.com/trentbrew/codehq/issues) and let's build it together.
+What agent workflows would be most useful for your team? [Open an issue](https://github.com/trentbrew/code-hq/issues) and let's build it together.
 
 ---
 
-*Built on [TQL](https://github.com/trentbrew/TQL) - A schema-agnostic EAV engine with Datalog evaluation.*
+_Built on [TQL](https://github.com/trentbrew/TQL) - A schema-agnostic EAV engine with Datalog evaluation._

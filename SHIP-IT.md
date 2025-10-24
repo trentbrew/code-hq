@@ -1,7 +1,8 @@
 # 🚀 SHIP IT - Immediate Actions
 
 ## ✅ Done
-- [x] GitHub repo created: https://github.com/trentbrew/codehq
+
+- [x] GitHub repo created: https://github.com/trentbrew/code-hq
 - [x] LICENSE.md added (MIT)
 - [x] Roadmap added to README
 
@@ -50,12 +51,12 @@ Add these fields before publishing:
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/trentbrew/codehq.git"
+    "url": "https://github.com/trentbrew/code-hq.git"
   },
   "bugs": {
-    "url": "https://github.com/trentbrew/codehq/issues"
+    "url": "https://github.com/trentbrew/code-hq/issues"
   },
-  "homepage": "https://github.com/trentbrew/codehq#readme",
+  "homepage": "https://github.com/trentbrew/code-hq#readme",
   "author": "Trent Brew <trentbrew@gmail.com>",
   "license": "MIT"
 }
@@ -106,7 +107,7 @@ AI needs *semantic context*, not flat files or proprietary APIs.
 code-hq fixes this 🧵
 
 1/ Every project gets a `.code-hq/` directory with a semantic graph
-   
+
    ✓ Tasks, notes, people, milestones
    ✓ JSON-LD format (machine-readable)
    ✓ Markdown views (human-readable)
@@ -119,15 +120,15 @@ code-hq query "show blocked tasks with dependencies"
 No parsing fragile text. No brittle APIs. Just structured queries.
 
 3/ Built on TQL – a schema-agnostic EAV engine with Datalog
-   
+
    • Transitive queries (dependencies)
    • Natural language support
    • Agent workflow runtime built-in
 
 4/ Works with your existing AI tools
-   
+
    Cursor, Claude Code, Windsurf, Cline
-   
+
    Just point them at .code-hq/prompts/
    They understand the semantic context
 
@@ -140,8 +141,8 @@ npx code-hq show --view kanban
 Open source. Local-first. Agent-native.
 
 📦 npm: npm install -g code-hq
-🔗 GitHub: github.com/trentbrew/codehq
-📖 Docs: github.com/trentbrew/codehq#readme
+🔗 GitHub: github.com/trentbrew/code-hq
+📖 Docs: github.com/trentbrew/code-hq#readme
 
 What agent workflows should we build next? 💬
 ```
@@ -153,6 +154,7 @@ What agent workflows should we build next? 💬
 **Title**: Show HN: code-hq – Project knowledge graph for AI agents
 
 **Body**:
+
 ```
 I built code-hq – a local-first project management system designed specifically for AI agents.
 
@@ -171,7 +173,7 @@ Built on TQL (a schema-agnostic EAV engine with Datalog evaluation that I built 
 
 Try it: `npx code-hq init`
 
-GitHub: https://github.com/trentbrew/codehq
+GitHub: https://github.com/trentbrew/code-hq
 
 Would love feedback on what agent workflows would be most useful!
 ```
@@ -181,11 +183,12 @@ Would love feedback on what agent workflows would be most useful!
 **Title**: I built a project management system designed for AI agents (open source)
 
 **Body**: Same as HN but add:
+
 ```
 Tech stack: TypeScript/Bun, EAV store, Datalog evaluator
 
-The core insight: AI agents need structured, semantic context to be truly useful. 
-code-hq provides that in a way that's natural for humans (Markdown + CLI) 
+The core insight: AI agents need structured, semantic context to be truly useful.
+code-hq provides that in a way that's natural for humans (Markdown + CLI)
 but rigorous enough for machines to reason over (EAV + Datalog).
 ```
 
@@ -223,17 +226,20 @@ Would love to hear what the developer community thinks!
 ## 🎯 Week 1 Goals
 
 **Days 1-2**: Launch + Listen
+
 - Post on all channels
 - Respond to every comment/issue within 24h
 - Document common questions
 - Fix critical bugs
 
 **Days 3-4**: Content
+
 - Record 3-min demo video
 - Write "Why AI Agents Need Semantic Context" blog post
 - Create 3 example agent workflows
 
 **Days 5-7**: Polish
+
 - Improve error messages based on feedback
 - Add missing docs
 - Plan next features based on requests
@@ -241,6 +247,7 @@ Would love to hear what the developer community thinks!
 ## 🛠️ Quick Wins for V1.1 (Based on Early Feedback)
 
 Likely requests:
+
 - Better error messages
 - Interactive `code-hq init` with prompts
 - `code-hq link` command for relationships

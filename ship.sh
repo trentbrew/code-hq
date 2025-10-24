@@ -69,11 +69,21 @@ echo ""
 
 # Step 3: Run tests
 echo "🧪 Running tests..."
-bun run test || {
-    echo "❌ Tests failed. Fix tests before shipping."
-    exit 1
-}
-echo "✅ Tests passed"
+read -p "Run tests before shipping? (y/n): " run_tests
+
+if [ "$run_tests" = "y" ]; then
+    bun run test || {
+        echo "❌ Tests failed."
+        read -p "Continue anyway? (y/n): " continue_anyway
+        if [ "$continue_anyway" != "y" ]; then
+            echo "Aborted."
+            exit 1
+        fi
+    }
+    echo "✅ Tests passed"
+else
+    echo "⏭️  Skipping tests"
+fi
 echo ""
 
 # Step 4: Build

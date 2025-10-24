@@ -1,6 +1,6 @@
 {
   "name": "code-hq",
-  "version": "1.1.1",
+  "version": "1.3.1",
   "description": "Project knowledge graph for agentic development",
   "main": "src/index.ts",
   "module": "src/index.ts",
@@ -44,12 +44,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/trentbrew/codehq.git"
+    "url": "https://github.com/trentbrew/code-hq.git"
   },
   "bugs": {
-    "url": "https://github.com/trentbrew/codehq/issues"
+    "url": "https://github.com/trentbrew/code-hq/issues"
   },
-  "homepage": "https://github.com/trentbrew/codehq#readme",
+  "homepage": "https://github.com/trentbrew/code-hq#readme",
   "author": "Trent Brew <trentbrew@gmail.com>",
   "license": "MIT",
   "devDependencies": {
