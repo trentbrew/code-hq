@@ -368,6 +368,19 @@
       "dueDate": "2025-02-28",
       "status": "planned",
       "progress": 0
+    },
+    {
+      "@id": "note:1761300918959",
+      "@type": "Note",
+      "title": "Added automatic version bumping",
+      "content": "Updated ship.sh to automatically bump version before publishing. User can choose patch/minor/major bump or skip. Prevents npm publish errors from duplicate versions. Script now:\n1. Shows current version\n2. Prompts for bump type  \n3. Updates package.json\n4. Commits with version in message\n5. Tags git with new version\n6. Publishes with error handling",
+      "type": "general",
+      "tags": [
+        "shipping",
+        "automation"
+      ],
+      "createdAt": "2025-10-24T10:15:18.959Z",
+      "updatedAt": "2025-10-24T10:15:18.959Z"
     }
   ]
 }
