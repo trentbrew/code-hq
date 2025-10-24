@@ -1,4 +1,4 @@
-<img width="219" height="139" alt="image" src="https://github.com/user-attachments/assets/85b05e6e-233e-4d94-a363-82e611e5ec60" />
+<img width="134" height="109" alt="image" src="https://github.com/user-attachments/assets/cfc0b43d-361d-4596-922d-03294e96cf8a" />
 
 # Project Knowledge Graph for Agentic Development
 
