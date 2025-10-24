@@ -170,7 +170,24 @@ Predefined workflows agents can execute:
 code-hq init
 code-hq create task "Fix auth bug" --priority high
 code-hq tasks --status blocked
+code-hq people --role developer
+code-hq milestones --status active
 code-hq show --view kanban
+```
+
+### 5. Changelog Automation
+
+Built-in changelog generation from git history:
+
+```bash
+# Preview changelog from commits
+code-hq changelog generate --dry-run
+
+# Generate and update CHANGELOG.md
+code-hq changelog generate
+
+# Prepare release (bump version, create tag)
+code-hq changelog release
 ```
 
 Everything stays in sync. Humans use the CLI. Agents query the graph.
@@ -259,12 +276,16 @@ Open source. Local-first. Built for agents.
 
 ## What's Next?
 
-I'm exploring:
+**Recently added** (v1.4-1.5):
+- ✅ **People & milestone tracking** - Full team management
+- ✅ **Changelog automation** - Generate from git history
+- ✅ **Agent workflow templates** - Standup, PR review, sprint planning
 
-1. **VSCode extension** - Visual graph editor
+**Coming soon**:
+1. **VSCode extension** - Visual graph editor and inline task management
 2. **GitHub sync** - Bidirectional issue linking
-3. **Agent templates** - Common workflows (standup, PR review, sprint planning)
-4. **Cross-project analytics** - Multi-repo insights
+3. **Cross-project analytics** - Multi-repo insights
+4. **AI-powered insights** - Automatic bottleneck detection, workload balancing
 
 What agent workflows would be most useful for your team? [Open an issue](https://github.com/trentbrew/code-hq/issues) and let's build it together.
 
