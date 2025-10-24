@@ -1,4 +1,6 @@
-# code-hq - Project Knowledge Graph for Agentic Development
+<img width="201" height="164" alt="image" src="https://github.com/user-attachments/assets/b0e542e0-8fb1-4da0-8165-e12e9afcd99f" />
+
+# Project Knowledge Graph for Agentic Development
 
 **code-hq** is a project-scoped knowledge graph system designed for agentic development workflows. It combines TQL's powerful EAV query engine with opinionated conventions for project management, creating a semantic memory layer that both humans and AI agents can read, write, and reason over.
 
