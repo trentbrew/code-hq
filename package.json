@@ -1,17 +1,33 @@
 {
-  "name": "code-hq",
-  "version": "1.5.0",
-  "description": "Project knowledge graph for agentic development",
-  "main": "src/index.ts",
-  "module": "src/index.ts",
+  "name": "agenthq",
+  "version": "2.0.0",
+  "description": "Agent-native knowledge graph for coordinated development",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "type": "module",
   "private": false,
   "bin": {
-    "code-hq": "./bin/code-hq.ts"
+    "agenthq": "dist/bin/agenthq.js",
+    "hq": "dist/bin/hq.js"
   },
   "scripts": {
-    "dev": "bun run index.ts",
-    "code-hq": "bun run bin/code-hq.ts",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc -p tsconfig.build.json && node scripts/copy-templates.mjs",
+    "verify-publish": "node scripts/verify-publish.mjs",
+    "ship": "node scripts/ship.mjs",
+    "ship:patch": "node scripts/ship.mjs patch",
+    "ship:minor": "node scripts/ship.mjs minor",
+    "ship:major": "node scripts/ship.mjs major",
+    "dev": "node dist/bin/agenthq.js --help",
+    "agenthq": "node dist/bin/agenthq.js",
+    "hq": "node dist/bin/hq.js",
     "demo:eav": "bun run examples/eav-demo.ts",
     "demo:graph": "bun run examples/graph-demo.ts",
     "demo:agent-graph": "bun run examples/agent-graph-demo.ts",
@@ -23,43 +39,57 @@
     "demos": "bun run examples/run-all-demos.ts",
     "tql": "bun run src/cli/tql.ts",
     "demo:tql": "bun run examples/tql-demo.ts",
-    "build": "bun build src/index.ts --outdir dist",
     "typecheck": "tsc --noEmit",
-    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build && bun test",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:workflow": "vitest run test/workflow-hardening.test.ts"
   },
   "keywords": [
-    "project-management",
-    "knowledge-graph",
-    "ai-agents",
-    "datalog",
-    "eav",
-    "task-management",
-    "semantic-web",
-    "json-ld",
     "agent-native",
-    "local-first"
+    "ai-agents",
+    "knowledge-graph",
+    "project-management",
+    "task-management",
+    "spec-driven-development",
+    "cursor",
+    "windsurf",
+    "copilot",
+    "datalog",
+    "json-ld",
+    "local-first",
+    "developer-tools",
+    "cli"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/trentbrew/code-hq.git"
+    "url": "https://github.com/trentbrew/agenthq.git"
   },
   "bugs": {
-    "url": "https://github.com/trentbrew/code-hq/issues"
+    "url": "https://github.com/trentbrew/agenthq/issues"
   },
-  "homepage": "https://github.com/trentbrew/code-hq#readme",
+  "homepage": "https://github.com/trentbrew/agenthq#readme",
   "author": "Trent Brew <trentbrew@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@types/bun": "latest",
     "@types/yaml": "^1.9.7",
+    "typescript": "^5",
     "vitest": "^1.0.0"
   },
   "peerDependencies": {
     "typescript": "^5"
   },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "docs"
+  ],
   "dependencies": {
     "@ai-sdk/openai": "^2.0.30",
     "ai": "^5.0.44",
